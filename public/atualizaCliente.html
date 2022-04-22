@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<script>
+    function buscar() {
+        fetch("/consultarCliente").then((response) => {
+        return response.json().then((json) => {
+            let tabela = document.getElementById("corpoTabelaCliente");
+            for (let index = 0; index < json.length; index++) {
+                const cliente = json[index];
+                let  linha=  tabela.insertRow();
+                let cellId =  linha.insertCell();
+                let cellNome =  linha.insertCell();
+                let cellEndereço =  linha.insertCell();
+                let cellCep =  linha.insertCell();
+                let cellTelefone =  linha.insertCell();
+                let cellQuem_Indicou =  linha.insertCell();
+                let cellHorario_Contato =  linha.insertCell();
+                cellId.innerText = cliente.ID;
+                cellNome.innerText = cliente.NOME;
+                cellEndereço.innerText = cliente.ENDEREÇO;
+                cellCep.innerText = cliente.CEP;
+                cellTelefone.innerText = cliente.TELEFONE;
+                cellQuem_Indicou.innerText = cliente.QUEM_INDICOU;
+                cellHorario_Contato.innerText = cliente.HORARIO_CONTATO;
+            }
+
+        });
+    })
+}
+    buscar();
+</script>
+<body>
+
+    <h1>Consultar Cliente</h1>
+
+    <table border="1">
+        <thead>
+            <tr><th>ID</th> <th>Nome</th> <th>Endereço</th> <th>CEP</th> <th>Telefone</th> <th>Quem Indicou</th> <th>Horário Indicado para Contato</th> </tr>
+        </thead>
+        <tbody id="corpoTabelaCliente">
+
+        </tbody>
+    </table>
+
+</body>
+</html>

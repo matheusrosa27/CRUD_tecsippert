@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<script>
+    function adicionarCliente(){
+        let nome = document.getElementById("nome").value;
+        let endereço = document.getElementById("endereço").value;
+        let cep = document.getElementById("cep").value;
+        let telefone = document.getElementById("telefone").value;
+        let quem_indicou = document.getElementById("quem_indicou").value;
+        let horario_contato = document.getElementById("horario_contato").value;
+
+        fetch("/adicionarCliente?nome="+nome+"&endereço="+endereço+"&cep="+cep+"&telefone="+telefone+"&quem_indicou="+quem_indicou+"&horario_contato="+horario_contato).then();
+    }
+</script>
+<body>
+
+    <h1>Adicionar Clientes</h1>
+
+    Nome: <input type=text id="nome"> <br/><br/>
+    Endereço: <input type=text id="endereço"> <br/><br/>
+    CEP: <input type=text id="cep"> <br/><br/>
+    Telefone: <input type=text id="telefone"> <br/><br/>
+    Quem Indicou: <input type=text id="quem_indicou"> <br/><br/>
+    Melhor Horario para Contato: <input type=text id="horario_contato"> <br/><br/>
+
+    <button type="button" onclick="adicionarCliente()">Adicionar</button>
+
+    <p id="result"></p>
+</body>
+</html>

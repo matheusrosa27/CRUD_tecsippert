@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<script>
+    function removerCliente(){
+        let id = document.getElementById("id").value;
+
+        fetch("/removerCliente?id="+id).then();
+    }
+</script>
+<body>
+
+    <h1>Adicionar Clientes</h1>
+
+    ID a ser removido: <input type=text id="id"> <br/><br/>
+
+    <button type="button" onclick="removerCliente()">Remover</button>
+
+    <p id="result"></p>
+</body>
+</html>
